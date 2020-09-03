@@ -15,7 +15,7 @@ public class KeyPairController {
     @Autowired
     private KeyPair keyPair;
 
-    @GetMapping("/rsa/public-key")
+    @GetMapping("/rsa/publicKey")
     public JSONObject getKey() {
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         RSAKey key = new RSAKey.Builder(publicKey).build();
