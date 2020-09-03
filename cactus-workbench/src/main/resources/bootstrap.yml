@@ -1,0 +1,11 @@
+server:
+  port: 9501
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cactus-workbench
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:cactus-register}:${NACOS_PORT:8848}

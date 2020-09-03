@@ -1,11 +1,12 @@
 package com.akita.cactus.gateway.config;
 
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.ArrayUtil;
 import com.akita.cactus.gateway.component.RestAuthenticationEntryPoint;
 import com.akita.cactus.gateway.component.RestfulAccessDeniedHandler;
 import com.akita.cactus.gateway.authorization.AuthorizationManager;
 import com.akita.cactus.gateway.constant.AuthConstant;
-import com.sun.deploy.util.ArrayUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +19,7 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.oauth2.server.resource.authentication.ReactiveJwtAuthenticationConverterAdapter;
 import org.springframework.security.web.server.SecurityWebFilterChain;
-import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
-
-import java.util.Arrays;
 
 @AllArgsConstructor
 @Configuration
@@ -37,7 +35,7 @@ public class ResourceServerConfig {
         http.oauth2ResourceServer().jwt()
                 .jwtAuthenticationConverter(jwtAuthenticationConverter());
         http.authorizeExchange()
-                .pathMatchers(ignoreUrlsConfig.getUrls()).permitAll()//白名单配置
+                .pathMatchers(ArrayUtil.toArray(ignoreUrlsConfig.getUrls(), String.class)).permitAll()//白名单配置
                 .anyExchange().access(authorizationManager)//鉴权管理器配置
                 .and().exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler)//处理未授权
