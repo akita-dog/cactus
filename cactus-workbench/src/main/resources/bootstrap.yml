@@ -2,9 +2,9 @@ server:
   port: 9501
 spring:
   profiles:
-    active: dev
+    active: @profiles.active@
   application:
-    name: cactus-workbench
+    name: @artifactId@
   cloud:
     nacos:
       discovery:

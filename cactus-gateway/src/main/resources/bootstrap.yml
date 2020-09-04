@@ -2,6 +2,6 @@ server:
   port: 8080
 spring:
   profiles:
-    active: dev
+    active: @profiles.active@
   application:
-    name: cactus-gateway
+    name: @artifactId@
