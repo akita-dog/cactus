@@ -12,6 +12,12 @@
     <artifactId>cactus-auth</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.akita</groupId>
+            <artifactId>cactus-common-core</artifactId>
+        </dependency>
+
+
         <!--注册中心客户端-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

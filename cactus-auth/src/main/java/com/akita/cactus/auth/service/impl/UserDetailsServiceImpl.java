@@ -1,6 +1,6 @@
 package com.akita.cactus.auth.service.impl;
 
-import com.akita.cactus.auth.constant.MessageConstant;
+import com.akita.cactus.common.core.constant.MessageConstant;
 import com.akita.cactus.auth.entity.UserDTO;
 import com.akita.cactus.auth.config.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -12,6 +12,7 @@
         <module>cactus-auth</module>
         <module>cactus-workbench</module>
         <module>cactus-gateway</module>
+        <module>cactus-common</module>
     </modules>
 
     <parent>
@@ -31,7 +32,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.akita</groupId>
-                <artifactId>cactus-common-web</artifactId>
+                <artifactId>cactus-common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

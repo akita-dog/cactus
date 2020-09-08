@@ -1,8 +1,8 @@
 package com.akita.cactus.gateway.authorization;
 
 import cn.hutool.core.convert.Convert;
-import com.akita.cactus.gateway.constant.AuthConstant;
-import com.akita.cactus.gateway.constant.RedisConstant;
+import com.akita.cactus.common.core.constant.AuthConstant;
+import com.akita.cactus.common.core.constant.RedisConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authorization.AuthorizationDecision;

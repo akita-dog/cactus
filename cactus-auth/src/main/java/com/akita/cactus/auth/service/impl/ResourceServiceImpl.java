@@ -1,6 +1,6 @@
 package com.akita.cactus.auth.service.impl;
 
-import com.akita.cactus.auth.constant.RedisConstant;
+import com.akita.cactus.common.core.constant.RedisConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

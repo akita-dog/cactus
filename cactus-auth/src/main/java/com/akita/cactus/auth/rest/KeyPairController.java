@@ -1,4 +1,4 @@
-package com.akita.cactus.auth.rest.api;
+package com.akita.cactus.auth.rest;
 
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;

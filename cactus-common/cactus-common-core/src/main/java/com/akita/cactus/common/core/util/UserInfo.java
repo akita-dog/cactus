@@ -1,15 +1,14 @@
-package com.akita.cactus.workbench.dto;
+package com.akita.cactus.common.core.util;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class UserDTO {
+public class UserInfo {
     private Long id;
     private String username;
     private String password;
-    private Integer status;
+    private Boolean enable;
     private List<String> roles;
 }
