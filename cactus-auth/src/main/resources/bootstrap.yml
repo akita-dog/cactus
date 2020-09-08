@@ -3,17 +3,10 @@ spring:
     name: @artifactId@
   profiles:
     active: @profiles.active@
-  cloud:
-    nacos:
-      discovery:
-        server-addr: ${NACOS_HOST:cactus-register}:${NACOS_PORT:8848}
-      config:
-        server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        file-extension: yml
   redis:
     host: ${REDIS_HOST:cactus-redis}
     port: ${REDIS_PORT:6379}
     password:
 
 server:
-  port: 9401
+  port: 6764
