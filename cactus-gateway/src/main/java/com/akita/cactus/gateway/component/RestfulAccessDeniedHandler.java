@@ -1,6 +1,7 @@
 package com.akita.cactus.gateway.component;
 
 import cn.hutool.json.JSONUtil;
+import com.akita.cactus.common.core.api.R;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,9 @@ public class RestfulAccessDeniedHandler implements ServerAccessDeniedHandler {
     @Override
     public Mono<Void> handle(ServerWebExchange serverWebExchange, AccessDeniedException e) {
         ServerHttpResponse response = serverWebExchange.getResponse();
-        response.setStatusCode(HttpStatus.OK);
+        response.setStatusCode(HttpStatus.FORBIDDEN);
         response.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-        String body= JSONUtil.toJsonStr(e);
+        String body= JSONUtil.toJsonStr(R.forbidden(e.getMessage()));
         DataBuffer buffer =  response.bufferFactory().wrap(body.getBytes(StandardCharsets.UTF_8));
         return response.writeWith(Mono.just(buffer));
     }

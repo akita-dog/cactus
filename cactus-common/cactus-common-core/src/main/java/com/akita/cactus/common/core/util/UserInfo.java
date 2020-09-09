@@ -1,10 +1,14 @@
 package com.akita.cactus.common.core.util;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class UserInfo {
     private Long id;
     private String username;

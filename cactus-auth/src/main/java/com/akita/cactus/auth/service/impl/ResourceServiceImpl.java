@@ -14,14 +14,12 @@ import java.util.TreeMap;
 @Service
 public class ResourceServiceImpl {
 
-    private Map<String, List<String>> resourceRolesMap;
-
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
     @PostConstruct
     public void initData() {
-        resourceRolesMap = new TreeMap<>();
+        Map<String, List<String>> resourceRolesMap = new TreeMap<>();
         resourceRolesMap.put("/api/hello", Arrays.asList("ADMIN"));
         resourceRolesMap.put("/api/user/currentUser", Arrays.asList("ADMIN", "TEST"));
 
