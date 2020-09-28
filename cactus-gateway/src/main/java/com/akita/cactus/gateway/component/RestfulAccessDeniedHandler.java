@@ -1,6 +1,7 @@
 package com.akita.cactus.gateway.component;
 
 import cn.hutool.json.JSONUtil;
+import com.akita.cactus.common.core.api.R;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class RestfulAccessDeniedHandler implements ServerAccessDeniedHandler {
         ServerHttpResponse response = serverWebExchange.getResponse();
         response.setStatusCode(HttpStatus.FORBIDDEN);
         response.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-        String body= JSONUtil.toJsonStr(e.getMessage());
+        String body= JSONUtil.toJsonStr(R.forbidden(null));
         DataBuffer buffer =  response.bufferFactory().wrap(body.getBytes(StandardCharsets.UTF_8));
         return response.writeWith(Mono.just(buffer));
     }

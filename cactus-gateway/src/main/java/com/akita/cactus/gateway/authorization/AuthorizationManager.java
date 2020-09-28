@@ -1,8 +1,7 @@
 package com.akita.cactus.gateway.authorization;
 
 import cn.hutool.core.convert.Convert;
-import com.akita.cactus.gateway.constant.AuthConstant;
-import com.akita.cactus.gateway.constant.RedisConstant;
+import com.akita.cactus.common.core.constant.AuthConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authorization.AuthorizationDecision;
@@ -40,7 +39,7 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
     }
 
     private List<String> getAvailableAuthorities(String url) {
-        Object obj = redisTemplate.opsForHash().get(RedisConstant.RESOURCE_ROLES_MAP, url);
+        Object obj = redisTemplate.opsForHash().get(AuthConstant.RESOURCE_ROLES_MAP, url);
         List<String> authorities = Convert.toList(String.class, obj);
         return authorities.stream().map(i -> i = AuthConstant.AUTHORITY_PREFIX + i).collect(Collectors.toList());
     }

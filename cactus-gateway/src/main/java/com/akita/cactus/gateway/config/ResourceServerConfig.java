@@ -1,12 +1,10 @@
 package com.akita.cactus.gateway.config;
 
-
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ArrayUtil;
+import com.akita.cactus.common.core.constant.AuthConstant;
 import com.akita.cactus.gateway.component.RestAuthenticationEntryPoint;
 import com.akita.cactus.gateway.component.RestfulAccessDeniedHandler;
 import com.akita.cactus.gateway.authorization.AuthorizationManager;
-import com.akita.cactus.gateway.constant.AuthConstant;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,9 @@
 package com.akita.cactus.common.core.api;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class R<T> {
     private int code;
 
@@ -16,7 +18,9 @@ public class R<T> {
     }
 
     R(HttpStatus status, T data) {
-        new R(status.value(), status.getReasonPhrase(), data);
+        this.code = status.value();
+        this.message = status.getReasonPhrase();
+        this.data = data;
     }
 
     public static <T> R<T> ok(T data) {
@@ -29,5 +33,9 @@ public class R<T> {
 
     public static <T> R<T> forbidden(T data) {
         return new R(HttpStatus.FORBIDDEN, data);
+    }
+
+    public static <T> R<T> unauthorized(T data) {
+        return new R(HttpStatus.UNAUTHORIZED, data);
     }
 }
