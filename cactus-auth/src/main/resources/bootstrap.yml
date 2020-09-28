@@ -3,10 +3,6 @@ spring:
     name: @artifactId@
   profiles:
     active: @profiles.active@
-  redis:
-    host: ${REDIS_HOST:cactus-redis}
-    port: ${REDIS_PORT:6379}
-    password:
 
 server:
   port: 6764
