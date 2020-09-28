@@ -17,7 +17,7 @@ public class R<T> {
         this.data = data;
     }
 
-    R(HttpStatus status, T data) {
+    public R(HttpStatus status, T data) {
         this.code = status.value();
         this.message = status.getReasonPhrase();
         this.data = data;

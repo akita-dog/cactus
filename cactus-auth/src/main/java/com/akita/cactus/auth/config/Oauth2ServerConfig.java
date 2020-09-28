@@ -1,6 +1,7 @@
 package com.akita.cactus.auth.config;
 
 import com.akita.cactus.auth.component.JwtTokenEnhancer;
+import com.akita.cactus.auth.component.RestWebResponseExceptionTranslator;
 import com.akita.cactus.auth.service.impl.UserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -30,6 +31,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     private final UserDetailsServiceImpl userDetailsService;
     private final AuthenticationManager authenticationManager;
     private final JwtTokenEnhancer jwtTokenEnhancer;
+    private final RestWebResponseExceptionTranslator exceptionTranslator;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -53,7 +55,8 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
         endpoints.authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService)
                 .accessTokenConverter(accessTokenConverter())
-                .tokenEnhancer(enhancerChain);
+                .tokenEnhancer(enhancerChain)
+                .exceptionTranslator(exceptionTranslator);
     }
 
     @Override
