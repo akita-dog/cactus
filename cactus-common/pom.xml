@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>cactus-common-core</module>
-        <module>cactus-common-redis</module>
     </modules>
 
 

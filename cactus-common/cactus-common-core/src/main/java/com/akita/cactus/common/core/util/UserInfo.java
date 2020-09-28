@@ -1,4 +1,4 @@
-package com.akita.cactus.common.core;
+package com.akita.cactus.common.core.util;
 
 import lombok.Data;
 
